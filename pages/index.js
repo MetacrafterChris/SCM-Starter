@@ -100,7 +100,7 @@ export default function HomePage() {
     )
   }
 
-  useEffect(() => {getWallet(); getBalance();}, [balance]);
+  useEffect(() => {getWallet();}, []);
 
   return (
     <main className="container">
