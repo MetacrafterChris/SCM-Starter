@@ -6,7 +6,7 @@ export default function HomePage() {
   const [ethWallet, setEthWallet] = useState(undefined);
   const [account, setAccount] = useState(undefined);
   const [atm, setATM] = useState(undefined);
-  const [balance, setBalance] = useState(1);
+  const [balance, setBalance] = useState(undefined);
 
   const contractAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
   const atmABI = atm_abi.abi;
@@ -84,6 +84,10 @@ export default function HomePage() {
     // Check to see if user is connected. If not, connect to their account
     if (!account) {
       return <button onClick={connectAccount}>Please connect your Metamask wallet</button>
+    }
+
+    if (balance == undefined) {
+      getBalance();
     }
 
     return (
